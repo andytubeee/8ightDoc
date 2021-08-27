@@ -1,9 +1,16 @@
 import 'tailwindcss/tailwind.css';
 import '@material-tailwind/react/tailwind.css';
 import '../styles/index.css';
+import useWindowSize from '../utils/useWindowSize';
 import Head from 'next/head';
+import { useEffect } from 'react';
+import MobileWarning from '../components/MobileWarning';
 
 function MyApp({ Component, pageProps }) {
+  const size = useWindowSize();
+  if (size.width < 700) {
+    return <MobileWarning />;
+  }
   return (
     <>
       <Head>

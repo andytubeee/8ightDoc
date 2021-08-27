@@ -5,7 +5,7 @@ import Logo from '../public/assets/navig-8.svg';
 
 const Header = () => {
   return (
-    <div className='sticky top-0 z-50 px-4 py-4 shadow-md bg-[#26A9AA] flex items-center'>
+    <header className='sticky top-0 z-50 px-4 py-4 shadow-md bg-[#26A9AA] flex items-center'>
       <Button
         className='md:inline-flex border-0 h-10 w-10 mr-3'
         color='white'
@@ -33,7 +33,7 @@ const Header = () => {
         />
       </div>
       <Button
-        className='sm:inline-flex border-0 h-10 w-10 ml-2 md:ml-10'
+        className='md:inline-block border-0 h-10 w-10 ml-2 md:ml-10'
         color='white'
         buttonType='outline'
         ripple='dark'
@@ -48,7 +48,7 @@ const Header = () => {
         alt='Profile picture'
         src='https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZmFjZSUyMHNob3R8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80'
       />
-    </div>
+    </header>
   );
 };
 
