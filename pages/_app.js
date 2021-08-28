@@ -5,6 +5,7 @@ import useWindowSize from '../utils/useWindowSize';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import MobileWarning from '../components/MobileWarning';
+import { Provider } from 'next-auth/client';
 
 function MyApp({ Component, pageProps }) {
   const size = useWindowSize();
@@ -14,6 +15,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <title>8ightDoc</title>
+        <link rel='icon' href='/favicon.ico' />
         // Material Icons Link
         <link
           href='https://fonts.googleapis.com/icon?family=Material+Icons'
@@ -33,7 +36,9 @@ function MyApp({ Component, pageProps }) {
           rel='stylesheet'
         />
       </Head>
-      <Component {...pageProps} />
+      <Provider session={pageProps.session}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }

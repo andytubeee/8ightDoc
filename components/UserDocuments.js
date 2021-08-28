@@ -1,26 +1,11 @@
 import Button from '@material-tailwind/react/Button';
 import Icon from '@material-tailwind/react/Icon';
-import app from '../firebase';
+import { db } from '../firebase';
 import { useEffect } from 'react';
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  doc,
-  query,
-} from 'firebase/firestore';
+import { getSession, useSession } from 'next-auth/client';
 
 const UserDocuments = () => {
-  useEffect(async () => {
-    const db = getFirestore(app);
-    const q = query(collection(db, 'users'));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, ' => ', doc.data());
-    });
-  });
-
+  const [session] = useSession();
   return (
     <section className='bg-white px-10 md:px-0'>
       <div className='max-w-3xl mx-auto py-8'>
@@ -39,6 +24,7 @@ const UserDocuments = () => {
             </Button>
           </div>
         </div>
+        {session && <p>Hello {session.user.name}</p>}
       </div>
     </section>
   );
