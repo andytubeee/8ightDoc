@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import * as animationData from '../public/assets/under_construction_lottie.json';
+import * as animationData from '../public/assets/lottie/under_construction_lottie.json';
 
 const MobileWarning = () => {
   const defaultOptions = {
