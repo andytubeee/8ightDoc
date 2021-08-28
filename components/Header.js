@@ -2,10 +2,30 @@ import Button from '@material-tailwind/react/Button';
 import Icon from '@material-tailwind/react/Icon';
 import Image from 'next/image';
 import Logo from '../public/assets/navig-8.svg';
-import { getSession, useSession } from 'next-auth/client';
+import { getSession, useSession, signOut } from 'next-auth/client';
+import Swal from 'sweetalert2';
 
 const Header = () => {
   const [session] = useSession();
+  const pfpOnclick = () => {
+    Swal.fire({
+      title: 'Profile',
+      text: `${session.user.name.split(' ')[0]}, do you want to sign out?`,
+      showCancelButton: true,
+      icon: 'warning',
+      confirmButtonText: 'Sign Out',
+      denyButtonText: `Cancel`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        try {
+          signOut();
+        } catch (e) {
+          Swal.fire('Error', 'Failed to sign out!', 'error');
+        }
+      }
+    });
+  };
   return (
     <header className='sticky top-0 z-50 px-4 py-4 shadow-md bg-[#28b8b8] flex items-center'>
       <Button
@@ -49,6 +69,7 @@ const Header = () => {
         className='cursor-pointer h-10 w-10 rounded-full ml-2'
         alt='Profile picture'
         src={session?.user?.image}
+        onClick={pfpOnclick}
       />
     </header>
   );
