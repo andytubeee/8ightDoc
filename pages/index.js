@@ -5,6 +5,11 @@ import StartDocument from '../components/StartDocument';
 import UserDocuments from '../components/UserDocuments';
 import { getSession, useSession } from 'next-auth/client';
 import SignInPage from '../components/SignIn';
+import {
+  useCollection,
+  useCollectionOnce,
+} from 'react-firebase-hooks/firestore';
+import { db } from '../firebase';
 
 export default function Home({ session }) {
   if (!session) return <SignInPage />;
@@ -13,7 +18,7 @@ export default function Home({ session }) {
     <div>
       <Header />
       <StartDocument session={session} />
-      <UserDocuments />
+      <UserDocuments session={session} />
     </div>
   );
 }
