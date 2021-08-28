@@ -19,7 +19,10 @@ const DocumentListItem = ({ docName, dateCreated }) => {
         />
         <p className='flex-grow pl-5 truncate max-w-xl pr-10'>{docName}</p>
       </div>
-      <p data-tip={new Date(dateCreated.seconds * 1000).toLocaleString()}>
+      <p
+        className='text-sm hover:text-xs'
+        data-tip={new Date(dateCreated.seconds * 1000).toLocaleString()}
+      >
         {localDateString}
       </p>
     </div>
