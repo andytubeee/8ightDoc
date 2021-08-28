@@ -5,7 +5,7 @@ import Logo from '../public/assets/navig-8.svg';
 
 const Header = () => {
   return (
-    <header className='sticky top-0 z-50 px-4 py-4 shadow-md bg-[#26A9AA] flex items-center'>
+    <header className='sticky top-0 z-50 px-4 py-4 shadow-md bg-[#28b8b8] flex items-center'>
       <Button
         className='md:inline-flex border-0 h-10 w-10 mr-3'
         color='white'

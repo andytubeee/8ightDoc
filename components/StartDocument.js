@@ -20,16 +20,13 @@ const StartDocument = () => {
           </Button>
         </div>
         <div className=''>
-          <div className='flex items-center justify-center h-52 w-40 bg-white rounded-md cursor-pointer group mb-2 border-2'>
+          <div className='flex items-center justify-center h-52 w-40 bg-white rounded-md cursor-pointer group mb-2 border-2 hover:border-green-300 transform transition-all duration-1000'>
             {' '}
-            <Image
-              src={PlusIcon}
-              width={40}
-              height={40}
-              className='group-hover:scale-90'
-            />
+            <Image src={PlusIcon} width={40} height={40} />
           </div>
-          <p>Blank</p>
+          <p className='ml-2 mt-2 font-semibold text-sm text-gray-600 '>
+            Blank
+          </p>
         </div>
       </div>
     </section>

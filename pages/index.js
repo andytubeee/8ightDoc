@@ -1,9 +1,8 @@
 import Head from 'next/head';
 import Header from '../components/Header';
-import Button from '@material-tailwind/react/Button';
-import Icon from '@material-tailwind/react/Icon';
 import Image from 'next/image';
 import StartDocument from '../components/StartDocument';
+import UserDocuments from '../components/UserDocuments';
 
 export default function Home() {
   return (
@@ -14,6 +13,7 @@ export default function Home() {
       </Head>
       <Header />
       <StartDocument />
+      <UserDocuments />
     </div>
   );
 }
