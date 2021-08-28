@@ -5,8 +5,7 @@ import Logo from '../public/assets/navig-8.svg';
 import { getSession, useSession, signOut } from 'next-auth/client';
 import Swal from 'sweetalert2';
 
-const Header = () => {
-  const [session] = useSession();
+const Header = ({ session }) => {
   const pfpOnclick = () => {
     Swal.fire({
       title: 'Profile',

@@ -1,7 +1,11 @@
 import Lottie from 'react-lottie';
 import * as animationData from '../public/assets/lottie/404_error.json';
+import Button from '@material-tailwind/react/Button';
+import Icon from '@material-tailwind/react/Icon';
+import { useRouter } from 'next/router';
 
 const NotFound = () => {
+  const router = useRouter();
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -11,7 +15,7 @@ const NotFound = () => {
     },
   };
   return (
-    <div className='flex justify-center items-center min-h-screen'>
+    <div className='flex flex-col justify-center items-center min-h-screen'>
       <Lottie
         className='overflow-hidden'
         isClickToPauseDisabled={true}
@@ -19,6 +23,9 @@ const NotFound = () => {
         width={500}
         height={500}
       />
+      <Button color='teal' onClick={() => router.back()}>
+        <Icon name='arrow_back' size='2xl' /> Go Back
+      </Button>
     </div>
   );
 };

@@ -16,7 +16,7 @@ export default function Home({ session }) {
 
   return (
     <div>
-      <Header />
+      <Header session={session} />
       <StartDocument session={session} />
       <UserDocuments session={session} />
     </div>
