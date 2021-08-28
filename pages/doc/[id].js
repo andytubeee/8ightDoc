@@ -6,6 +6,7 @@ import SignInPage from '../../components/SignIn';
 import { useSession, getSession } from 'next-auth/client';
 import { db } from '../../firebase';
 import DocError from '../../components/DocumentPage/DocError';
+import TextEditor from '../../components/DocumentPage/TextEditor';
 
 const Doc = ({ session }) => {
   const router = useRouter();
@@ -27,6 +28,7 @@ const Doc = ({ session }) => {
           session={session}
           id={id}
         />
+        <TextEditor />
       </div>
     );
   } catch (err) {

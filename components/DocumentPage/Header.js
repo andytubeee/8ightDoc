@@ -9,9 +9,12 @@ import { signOut } from 'next-auth/client';
 
 const Header = ({ title, pfp, session, id }) => {
   const router = useRouter();
-  const HeaderMenu = ({ title: menuName }) => {
+  const HeaderMenu = ({ title: menuName, onClick }) => {
     return (
-      <p className='cursor-pointer hover:bg-gray-200 first:ml-[-8px] px-2 rounded-md text-gray-500'>
+      <p
+        className='cursor-pointer hover:bg-gray-200 first:ml-[-8px] px-2 rounded-md text-gray-500'
+        onClick={onClick}
+      >
         {menuName}
       </p>
     );
@@ -49,6 +52,27 @@ const Header = ({ title, pfp, session, id }) => {
       .update({
         fileName: name,
       });
+  };
+  const popupFooter = () => {
+    return (
+      <>
+        <div style='display: flex; gap: 10px '>
+          <i class='fab fa-github' style='font-size: 20px' />
+          <a href='https://github.com/andytubeee/8ightDoc'>
+            Checkout the Project on GitHub
+          </a>
+        </div>
+      </>
+    );
+  };
+
+  const showAboutPopup = () => {
+    Swal.fire({
+      title: '8ight Doc',
+      text: 'Developed by Andrew Yang',
+      footer:
+        "<div style='display: flex; gap: 10px; align-items: center'><i class='fab fa-github' style='font-size: 30px; margin-right: 10px'></i><a href='https://github.com/andytubeee/8ightDoc'>Checkout the Project on GitHub</a></div>",
+    });
   };
 
   const pfpOnclick = () => {
@@ -93,6 +117,7 @@ const Header = ({ title, pfp, session, id }) => {
           <HeaderMenu title='Insert' />
           <HeaderMenu title='Format' />
           <HeaderMenu title='Tools' />
+          <HeaderMenu title='About' onClick={showAboutPopup} />
         </div>
       </div>
       <Button className='mr-4' color='teal'>
