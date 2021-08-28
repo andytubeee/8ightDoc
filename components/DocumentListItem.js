@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-tailwind/react/Button';
 import Icon from '@material-tailwind/react/Icon';
 import { useRouter } from 'next/dist/client/router';
@@ -81,20 +81,25 @@ const DocumentListItem = ({ docName, dateCreated, session, id }) => {
       .catch((error) => Swal.fire('Error', 'Error deleting document', 'error'));
   };
 
+  const openDoc = () => {
+    router.push(`/doc/${id}`);
+  };
+
   return (
     <div
-      //   onClick={() => router.push(`/doc/${id}`)}
-      className='flex items-center border-b-2 mb-4 cursor-pointer hover:scale-105 
-    duration-200 justify-between font-thin rounded-lg hover:bg-green-100 p-2'
+      className='flex items-center border-b-2 mb-4  justify-between  cursor-pointer hover:scale-105 
+    duration-200 font-thin rounded-lg hover:bg-green-100 p-0'
     >
-      <div className='flex gap-3'>
-        <Icon
-          className='inline-block'
-          name='article'
-          size='3xl'
-          color='green'
-        />
-        <p className='flex-grow pl-5 truncate max-w-xl pr-10'>{docName}</p>
+      <div onClick={openDoc} className='p-2 flex-grow flex items-center'>
+        <div className='flex gap-3'>
+          <Icon
+            className='inline-block'
+            name='article'
+            size='3xl'
+            color='green'
+          />
+          <p className='flex-grow pl-5 truncate max-w-xl pr-10'>{docName}</p>
+        </div>
       </div>
       <div className='flex items-center'>
         <p
