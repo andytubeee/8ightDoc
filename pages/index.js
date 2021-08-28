@@ -12,7 +12,7 @@ export default function Home({ session }) {
   return (
     <div>
       <Header />
-      <StartDocument />
+      <StartDocument session={session} />
       <UserDocuments />
     </div>
   );

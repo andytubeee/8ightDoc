@@ -3,8 +3,10 @@ import Icon from '@material-tailwind/react/Icon';
 import Image from 'next/image';
 import PlusIcon from '../public/assets/icons8-plus-+.svg';
 import Swal from 'sweetalert2';
+import { db } from '../firebase';
+import firebase from 'firebase';
 
-const StartDocument = () => {
+const StartDocument = ({ session }) => {
   const createNewDocumentPopup = () => {
     Swal.fire({
       title: 'Create a new document',
@@ -20,14 +22,27 @@ const StartDocument = () => {
         if (res.value.length <= 0)
           return Swal.fire('Error', 'Invalid document name', 'error');
 
-        Swal.fire('Success', 'New document created', 'success').then((_) => {
-          createNewDocument(res.value);
-        });
+        createNewDocument(res.value)
+          .then((_) => {
+            Swal.fire('Success', 'New document created', 'success');
+          })
+          .catch((err) => {
+            Swal.fire('Error', 'Error: ' + err, 'error');
+          });
       }
     });
   };
-  const createNewDocument = (title) => {
-    console.log(title);
+  const createNewDocument = async (title) => {
+    if (!title) return;
+
+    await db
+      .collection('userDocs')
+      .doc(session.user.email)
+      .collection('docs')
+      .add({
+        fileName: title,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      });
   };
   return (
     <section className='bg-green-50 p-2'>
