@@ -24,7 +24,6 @@ const UserDocuments = () => {
             </Button>
           </div>
         </div>
-        {session && <p>Hello {session.user.name}</p>}
       </div>
     </section>
   );
