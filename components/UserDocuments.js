@@ -38,6 +38,8 @@ const UserDocuments = ({ session }) => {
               key={doc.id}
               docName={doc.data().fileName}
               dateCreated={doc.data().timestamp}
+              session={session}
+              id={doc.id}
             />
             <ReactTooltip place='right' backgroundColor='#28B8B8' />
           </>
