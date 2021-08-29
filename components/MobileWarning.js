@@ -20,7 +20,9 @@ const MobileWarning = () => {
           height={400}
           width={400}
         />
-        Temporarily not available for mobile/small screen
+        <p className='text-gray-700 font-serif mx-6'>
+          Temporarily not available for mobile/small screen
+        </p>
       </div>
     </>
   );
