@@ -53,19 +53,6 @@ const Header = ({ title, pfp, session, id }) => {
         fileName: name,
       });
   };
-  const popupFooter = () => {
-    return (
-      <>
-        <div style='display: flex; gap: 10px '>
-          <i class='fab fa-github' style='font-size: 20px' />
-          <a href='https://github.com/andytubeee/8ightDoc'>
-            Checkout the Project on GitHub
-          </a>
-        </div>
-      </>
-    );
-  };
-
   const showAboutPopup = () => {
     Swal.fire({
       title: '8ight Doc',
