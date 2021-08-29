@@ -69,9 +69,9 @@ const Header = ({ title, pfp, session, id }) => {
   const showAboutPopup = () => {
     Swal.fire({
       title: '8ight Doc',
-      html: 'Developed by <a href="https://github.com/andytubeee" target="_blank">Andrew Yang</a>',
+      html: 'Developed by <a href="https://github.com/andytubeee" target="_blank" class="hover:text-blue-500">Andrew Yang</a>',
       footer:
-        "<div style='display: flex; gap: 10px; align-items: center'><i class='fab fa-github' style='font-size: 30px; margin-right: 10px'></i><a href='https://github.com/andytubeee/8ightDoc'>Checkout the Project on GitHub</a></div>",
+        "<div style='display: flex; gap: 10px; align-items: center'><i class='fab fa-github' style='font-size: 30px; margin-right: 10px'></i><a href='https://github.com/andytubeee/8ightDoc' class='hover:text-gray-500'>Checkout the Project on GitHub</a></div>",
     });
   };
 
