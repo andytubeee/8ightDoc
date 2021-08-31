@@ -28,7 +28,7 @@ const Doc = ({ session }) => {
           session={session}
           id={id}
         />
-        <TextEditor />
+        <TextEditor session={session} id={id} />
       </div>
     );
   } catch (err) {
